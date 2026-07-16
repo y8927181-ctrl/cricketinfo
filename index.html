@@ -3,40 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>High-Performance Portal</title>
+    <title>Cricket Updates - Live Scores & Schedules</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0f172a; color: #f8fafc; line-height: 1.6; padding: 20px; text-align: center; }
-        .wrapper { max-width: 900px; margin: 40px auto; padding: 20px; }
-        header { text-align: center; margin-bottom: 40px; }
-        header h1 { font-size: 2.5rem; color: #38bdf8; margin-bottom: 10px; }
+        .wrapper { max-width: 900px; margin: 20px auto; padding: 10px; }
+        header { text-align: center; margin-bottom: 25px; }
+        header h1 { font-size: 2.8rem; color: #f59e0b; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
         header p { color: #94a3b8; font-size: 1.1rem; }
-        .main-content { background: #1e293b; padding: 30px; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); border: 1px solid #334155; margin-bottom: 30px; }
-        .main-content h2 { margin-bottom: 15px; color: #f1f5f9; }
         
-        .ad-leaderboard-container { width: 100%; max-width: 728px; min-height: 90px; margin: 30px auto; background: #0f172a; border: 2px dashed #475569; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; }
-        .ad-leaderboard-container span { font-size: 0.75rem; color: #64748b; margin-bottom: 5px; display: block; text-transform: uppercase; letter-spacing: 0.05em; }
+        .main-content { background: #1e293b; padding: 20px; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); border: 1px solid #334155; margin-bottom: 25px; }
+        .main-content h2 { margin-bottom: 15px; color: #38bdf8; font-size: 1.5rem; }
         
-        footer { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 50px; }
+        /* Live Scorecard Container Element */
+        .live-score-box { width: 100%; border-radius: 8px; overflow: hidden; background: #0f172a; border: 1px solid #475569; margin-bottom: 25px; min-height: 450px; }
+        
+        .ad-leaderboard-container { width: 100%; max-width: 728px; min-height: 90px; margin: 25px auto; background: #0f172a; border: 2px dashed #475569; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; }
+        .ad-leaderboard-container span { font-size: 0.75rem; color: #64748b; margin-bottom: 5px; display: block; text-transform: uppercase; }
+        
+        footer { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 40px; }
     </style>
 </head>
 <body>
 
     <div class="wrapper">
         <header>
-            <h1>High-Performance Portal</h1>
-            <p>Hosted 24/7 without investment or background operating costs</p>
+            <!-- Naam badal kar Cricket Updates kar diya hai -->
+            <h1>Cricket Updates</h1>
+            <p>24/7 Real-Time Live Cricket Scorecard & Ball-by-Ball Analysis</p>
         </header>
 
         <main class="main-content">
-            <h2>Cloud Server Status: Operational</h2>
-            <p>This web interface runs within a secure cloud web container, providing optimal response speed for users.</p>
+            <h2>🔴 Current Live Matches & Scorecard</h2>
             
-            <!-- BADA LEADERBOARD AD SPACE (728x90) -->
+            <!-- AUTOMATIC LIVE SCORE WIDGET -->
+            <div class="live-score-box">
+                <iframe 
+                    src="https://cricketwaves.com" 
+                    width="100%" 
+                    height="450px" 
+                    frameborder="0" 
+                    scrolling="auto">
+                </iframe>
+            </div>
+            
+            <!-- AAPKA ACTIVE 728x90 ADSTERRA AD SLOT -->
             <div class="ad-leaderboard-container">
                 <span>Sponsored Advertisement</span>
-                
-                <!-- AAPKA ASLI ADSTERRA CODE YAHAN HAI -->
                 <script type="text/javascript">
                   atOptions = {
                     'key' : '34c8948e34070b211bacaf19b3941203',
@@ -46,13 +59,12 @@
                     'params' : {}
                   };
                 </script>
-                <script type="text/javascript" src="https://www.highperformanceformat.com/34c8948e34070b211bacaf19b3941203/invoke.js"></script>
-
+                <script type="text/javascript" src="https://highperformanceformat.com"></script>
             </div>
         </main>
 
         <footer>
-            <p>&copy; 2026 Live Web Architecture.</p>
+            <p>&copy; 2026 Cricket Updates Networks. All Rights Reserved.</p>
         </footer>
     </div>
 
