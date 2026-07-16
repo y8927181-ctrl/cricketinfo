@@ -7,23 +7,17 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0f172a; color: #f8fafc; line-height: 1.6; padding: 20px; text-align: center; }
-        .wrapper { max-width: 800px; margin: 20px auto; padding: 10px; }
+        .wrapper { max-width: 850px; margin: 20px auto; padding: 10px; }
         header { text-align: center; margin-bottom: 20px; }
         header h1 { font-size: 2.6rem; color: #f59e0b; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
         header p { color: #94a3b8; font-size: 1.1rem; }
         
-        .main-content { background: #1e293b; padding: 30px 20px; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); border: 1px solid #334155; margin-bottom: 25px; }
+        .main-content { background: #1e293b; padding: 25px 15px; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); border: 1px solid #334155; margin-bottom: 25px; }
         .main-content h2 { margin-bottom: 20px; color: #38bdf8; font-size: 1.6rem; }
         
-        /* Local Score Card CSS */
-        .score-card { background: #0f172a; border: 1px solid #475569; border-radius: 10px; padding: 25px; margin: 20px auto; max-width: 600px; text-align: center; box-shadow: inset 0 2px 4px rgba(0,0,0,0.6); }
-        .match-title { font-size: 1.1rem; color: #a855f7; font-weight: bold; text-transform: uppercase; margin-bottom: 10px; }
-        .team-row { display: flex; justify-content: space-between; align-items: center; margin: 12px 0; padding: 5px 20px; }
-        .team-name { font-size: 1.4rem; font-weight: bold; color: #ffffff; }
-        .team-score { font-size: 1.4rem; font-weight: bold; color: #22c55e; }
-        .match-status { margin-top: 15px; font-size: 1.1rem; color: #e11d48; font-weight: bold; background: rgba(225, 29, 72, 0.1); padding: 8px; border-radius: 50px; display: inline-block; }
+        /* Multi-Match Widget Container */
+        .multi-score-box { width: 100%; border-radius: 10px; overflow: hidden; background: #ffffff; border: 1px solid #475569; margin-top: 15px; min-height: 600px; }
         
-        /* Top High-Earning Ad Container */
         .ad-leaderboard-container { width: 100%; max-width: 728px; min-height: 90px; margin: 15px auto 25px auto; background: #0f172a; border: 2px dashed #475569; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; }
         .ad-leaderboard-container span { font-size: 0.75rem; color: #64748b; margin-bottom: 5px; display: block; text-transform: uppercase; }
         
@@ -35,10 +29,10 @@
     <div class="wrapper">
         <header>
             <h1>Cricket Updates</h1>
-            <p>24/7 Real-Time Live Cricket Scorecard & Fast Ball-by-Ball Analysis</p>
+            <p>24/7 Real-Time Live Cricket Scorecard & All Match Analysis</p>
         </header>
 
-        <!-- HIGH EARNING AD SLOT PLACED ON TOP TO FORCE RENDER -->
+        <!-- MAIN TOP ADSTERRA AD SLOT -->
         <div class="ad-leaderboard-container">
             <span>Sponsored Advertisement</span>
             <script type="text/javascript">
@@ -54,23 +48,17 @@
         </div>
 
         <main class="main-content">
-            <h2>🔴 Live Match Scoreboard</h2>
+            <h2>🔴 All Live & Recent Matches</h2>
             
-            <!-- LOCAL SCORE CARD (NEVER BLOCKS / USER STAYS ON SITE) -->
-            <div class="score-card">
-                <div class="match-title">T20 International Match</div>
-                
-                <div class="team-row">
-                    <span class="team-name">🇮🇳 INDIA</span>
-                    <span class="team-score" id="ind-score">184/3 (18.2 Ov)</span>
-                </div>
-                
-                <div class="team-row">
-                    <span class="team-name">🇦🇺 AUSTRALIA</span>
-                    <span class="team-score" id="aus-score">Yet to Bat</span>
-                </div>
-                
-                <div class="match-status">🔴 LIVE: India opted to bat. Surya 64*(28)</div>
+            <!-- MULTI-MATCH SCORE LOADER (EVERY LIVE MATCH WILL SHOW HERE) -->
+            <div class="multi-score-box">
+                <iframe 
+                    src="https://cricketlineguru.com" 
+                    width="100%" 
+                    height="600px" 
+                    frameborder="0" 
+                    scrolling="yes">
+                </iframe>
             </div>
         </main>
 
@@ -79,26 +67,5 @@
         </footer>
     </div>
 
-    <!-- LOCAL AUTOMATIC REFRESH SCRIPT FOR DEMO SCORES -->
-    <script>
-        // Yeh script har 5 second mein automatic run aur score ko badalata rahega local computer par hi
-        let balls = 2;
-        let runs = 184;
-        let wickets = 3;
-        
-        setInterval(() => {
-            if(balls < 5) {
-                balls++;
-                runs += Math.floor(Math.random() * 4); // Automatic random runs update
-            } else {
-                balls = 0;
-                let currentOv = parseInt(document.getElementById('ind-score').innerText.split(' ')[1].split('.')[0]);
-                runs += Math.floor(Math.random() * 6);
-                document.getElementById('ind-score').innerText = runs + "/" + wickets + " (" + (currentOv + 1) + ".0 Ov)";
-                return;
-            }
-            document.getElementById('ind-score').innerText = runs + "/" + wickets + " (18." + balls + " Ov)";
-        }, 5000);
-    </script>
 </body>
 </html>
